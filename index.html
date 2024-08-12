@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sebastian Chen</title>
     <style>
-        /* Existing Styles */
+        /* General Styles */
         body {
             background-color: #121212;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         .container {
             width: 80%;
@@ -33,21 +34,75 @@
             border-bottom: 2px solid #ffffff;
             padding-bottom: 10px;
             margin-bottom: 20px;
-        }
-        .portfolio-item {
-            margin-bottom: 20px;
+            font-size: 2em;
         }
         footer {
             text-align: center;
             padding: 20px 0;
             border-top: 1px solid #ffffff;
+            margin-top: 50px;
         }
         a {
             color: #1e90ff;
             text-decoration: none;
         }
         
-        /* Notes Section Styles */
+        /* Interactive Styles */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hover-zoom {
+            transition: transform 0.3s ease;
+        }
+        .hover-zoom:hover {
+            transform: scale(1.05);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        /* Bookshelf Section */
+        .bookshelf {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .book {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 5px;
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .book img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .book-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .book:hover .book-info {
+            transform: translateY(0);
+        }
+
+        /* Notes Section */
         .notes-section {
             margin-top: 50px;
         }
@@ -102,41 +157,89 @@
             border-radius: 5px;
             border: 1px solid #333;
         }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 30px;
+        }
+        .experience-item h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .experience-item p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #aaa;
+        }
+        .experience-item .duration {
+            font-size: 1em;
+            color: #888;
+        }
     </style>
 </head>
-<body>
-    <div class="container">
+<body class="smooth-scroll">
+    <div class="container fade-in">
         <header>
-            <h1>Sebastian Chen</h1>
-            <p>Professional | Minimalist | Dark Mode</p>
+            <h1 class="hover-zoom">Sebastian Chen</h1>
+            <p>Minimalist | Professional | Dark Mode</p>
         </header>
 
         <section id="about-me">
             <h2>About Me</h2>
-            <p>Hello! I'm Sebastian Chen, a passionate professional dedicated to engineering. With a strong background in engineering, I strive to become an engineer. In my spare time, I enjoy reading, swimming, and movies.</p>
+            <p>Hello! I'm Sebastian Chen, a passionate professional dedicated to [Your Profession/Field]. With a strong background in [Your Background/Expertise], I strive to [Your Mission/Goal]. In my spare time, I enjoy [Your Hobbies/Interests].</p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Job Title 1</h3>
+                <p>Company Name | Location</p>
+                <p class="duration">From Date - To Date</p>
+                <p>Description of your role and achievements in this position. Highlight key responsibilities and accomplishments.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Job Title 2</h3>
+                <p>Company Name | Location</p>
+                <p class="duration">From Date - To Date</p>
+                <p>Description of your role and achievements in this position. Highlight key responsibilities and accomplishments.</p>
+            </div>
+            <!-- Add more experience items as needed -->
         </section>
 
         <section id="portfolio">
             <h2>Portfolio</h2>
             <div class="portfolio-item">
-                <h3>Detoxh3>
-                <p>Get users off apps with counseling.</p>
+                <h3>Project Title 1</h3>
+                <p>Description of the project. Highlight key features and your role in it.</p>
             </div>
             <div class="portfolio-item">
-                <h3>Boxxed</h3>
-                <p>The best cleaning tool.</p>
+                <h3>Project Title 2</h3>
+                <p>Description of the project. Highlight key features and your role in it.</p>
             </div>
             <!-- Add more portfolio items as needed -->
         </section>
 
-        <section id="contact-information">
-            <h2>Contact Information</h2>
-            <p>Email: <a href="sebastianchen15@gmail.com">your.email@example.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-            <!-- Add more contact information as needed -->
+        <section id="bookshelf">
+            <h2>Bookshelf</h2>
+            <div class="bookshelf">
+                <div class="book hover-zoom">
+                    <img src="book1.jpg" alt="Book 1">
+                    <div class="book-info">
+                        <h3>Book Title 1</h3>
+                        <p>Short description of the book.</p>
+                    </div>
+                </div>
+                <div class="book hover-zoom">
+                    <img src="book2.jpg" alt="Book 2">
+                    <div class="book-info">
+                        <h3>Book Title 2</h3>
+                        <p>Short description of the book.</p>
+                    </div>
+                </div>
+                <!-- Add more books as needed -->
+            </div>
         </section>
 
-        <!-- Notes Section -->
         <section id="notes" class="notes-section">
             <div class="notes-header">
                 <h2>Notes</h2>
@@ -151,6 +254,13 @@
                 <textarea id="note-content" placeholder="Note Content"></textarea>
                 <button onclick="addNote()">Save Note</button>
             </div>
+        </section>
+
+        <section id="contact-information">
+            <h2>Contact Information</h2>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+            <!-- Add more contact information as needed -->
         </section>
 
         <footer>
@@ -168,31 +278,4 @@
 
         function addNote() {
             const title = document.getElementById('note-title').value;
-            const content = document.getElementById('note-content').value;
-            const date = new Date().toLocaleDateString();
-            if (title && content) {
-                notes.push({ title, content, date });
-                document.getElementById('note-title').value = '';
-                document.getElementById('note-content').value = '';
-                document.getElementById('note-form').style.display = 'none';
-                renderNotes();
-            }
-        }
-
-        function renderNotes() {
-            const notesContent = document.getElementById('notes-content');
-            notesContent.innerHTML = '';
-            notes.forEach(note => {
-                notesContent.innerHTML += `
-                    <div class="note">
-                        <div class="note-category">Misc</div>
-                        <div class="note-date">${note.date}</div>
-                        <h3>${note.title}</h3>
-                        <p>${note.content}</p>
-                    </div>
-                `;
-            });
-        }
-    </script>
-</body>
-</html>
+            const content = document.getElementById('note-content').value
